@@ -56,10 +56,7 @@ function load() {
         player[player_vars_str[i]] = u[player_vars_str[i]]
         if (player[player_vars_str[i]] == undefined) {
             if (player_vars_str[i] == "version") { //old save revert
-                if (player.points.gte("ee22")) {
-                    localStorage.setItem("wngu-r2", banks[6])
-                    location.reload()
-                }
+                //idk
             }
             else {
                 player[player_vars_str[i]] = initPlayer()[player_vars_str[i]]
