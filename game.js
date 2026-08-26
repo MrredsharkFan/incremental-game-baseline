@@ -1,21 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function update(dt) {
     //the player, dt = delta time    
 }
