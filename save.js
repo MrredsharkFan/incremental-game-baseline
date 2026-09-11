@@ -1,10 +1,11 @@
 function initPlayer() {
     return {
-        version: "2.a.0"
+        version: "1.0.0"
     }
 }
 
-NAME = undefined //place you want to direct your local storage thing
+NAME = "67" //place you want to direct your local storage thing
+//change this to sth else to enable saving!!!
 
 
 
@@ -38,7 +39,7 @@ function save() {
     localStorage.setItem(NAME, JSON.stringify(player))
 }
 
-//s = setInterval(save, 1000, 1)
+if (NAME != "67") s = setInterval(save, 1000, 1)
 
 function load() {
     var u = JSON.parse(localStorage.getItem(NAME))
@@ -71,7 +72,7 @@ const banks =
             ]
 
 load()
-player.version = "2.a.0"
+player.version = "1.0.0"
 
 function bank(num) {
     if (confirm("Are you sure you want to use this save? This will OVERRIDE your progress!")) {

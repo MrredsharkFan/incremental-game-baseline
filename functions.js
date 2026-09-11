@@ -8,5 +8,5 @@
  */
 
 const funcs = {
-    goo: function(){return "six seven"}
+    goo: function(){return "idk"}
 }

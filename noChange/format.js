@@ -10,13 +10,13 @@ const t2_1 = ",Mi,Mc,Na,Pi,Fm,At,Zp,Yt,Xo".split(",")
 //could've copied from ad notations for more dignity but i suck
 function commaFormat(num) {
     var v = num.toString().split(".")
-    v[0] = v[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    v[0] = v[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") //still figuring how regex works (doubt if i'll use it for a while)
     return v.join(".")
 }
 
 function standard(n, la) {
     var n = new Decimal(n)
-    if (la.eq(1) && n.gte(1000000000)) {
+    if (la.eq(1) && n.gte(1e9)) {
         la = n.log10().div(3).sub(3).floor().max(0).add(1)
         n = n.div(la.sub(1).times(3).pow10()).floor()
     }
@@ -71,7 +71,7 @@ function format(num, prec = 2, small = true,no="S:1e6",comma=6) {
         if (num.lte("e3e9")) { return `${format(m, prec)} ${standard(n, new Decimal(1))}` }
         else { return `${standard(n, new Decimal(1))}s` }
     }
-    else if (num.lte("10^^5")) {
+    else if (num.layer <= 4) {
         if (no[0] == "I") { return `${format(num.log(new Decimal(2).pow(1024)), prec + 1)}&infin;` }
         if (num.lte(`ee${comma}`)) { return `${num.log10().mod(1).pow10().toFixed(prec)}e${format(num.log10().floor().add(0.01), 0)}` }
         if (num.lte(`eee${comma}`)) { return `e${format(num.log10(), prec + 1)}` }
